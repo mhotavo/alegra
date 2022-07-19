@@ -15,11 +15,11 @@ class CreateIngredientDishTable extends Migration
     {
         Schema::create('ingredient_dish', function (Blueprint $table) {
             $table->unsignedBigInteger('ingredient_id');
-            $table->unsignedBigInteger('recipe_id')->index('ingredient_recipe_recipe_id_foreign');
+            $table->unsignedBigInteger('dish_id')->index('ingredient_dish_dish_id_foreign');
             $table->unsignedBigInteger('quantity');
             $table->timestamps();
 
-            $table->primary(['ingredient_id', 'recipe_id']);
+            $table->primary(['ingredient_id', 'dish_id']);
         });
     }
 

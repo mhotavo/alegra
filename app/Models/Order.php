@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property integer $id
- * @property integer $recipe_id
+ * @property integer $dish_id
  * @property integer $state
  * @property string $created_at
  * @property string $updated_at
@@ -24,13 +24,13 @@ class Order extends Model
     /**
      * @var array
      */
-    protected $fillable = ['recipe_id', 'state', 'created_at', 'updated_at'];
+    protected $fillable = ['dish_id', 'state', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function dish()
     {
-        return $this->belongsTo('App\Models\Dish', 'recipe_id');
+        return $this->belongsTo('App\Models\Dish', 'dish_id');
     }
 }

@@ -14,7 +14,7 @@ class AddForeignKeysToOrdersTable extends Migration
     public function up()
     {
         Schema::table('orders', function (Blueprint $table) {
-            $table->foreign(['recipe_id'], 'recipe_orders_recipe_id_foreign')->references(['id'])->on('dishes');
+            $table->foreign(['dish_id'], 'dish_orders_dish_id_foreign')->references(['id'])->on('dishes');
         });
     }
 
@@ -26,7 +26,7 @@ class AddForeignKeysToOrdersTable extends Migration
     public function down()
     {
         Schema::table('orders', function (Blueprint $table) {
-            $table->dropForeign('recipe_orders_recipe_id_foreign');
+            $table->dropForeign('dish_orders_dish_id_foreign');
         });
     }
 }

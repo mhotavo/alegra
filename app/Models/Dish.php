@@ -31,7 +31,7 @@ class Dish extends Model
      */
     public function ingredientDishes()
     {
-        return $this->hasMany('App\Models\IngredientDish', 'recipe_id');
+        return $this->hasMany('App\Models\IngredientDish', 'dish_id');
     }
 
     /**
@@ -39,6 +39,6 @@ class Dish extends Model
      */
     public function orders()
     {
-        return $this->hasMany('App\Models\Order', 'recipe_id');
+        return $this->hasMany('App\Models\Order', 'dish_id');
     }
 }
