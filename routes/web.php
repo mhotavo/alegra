@@ -20,7 +20,7 @@ Route::resource('ingredients', App\Http\Controllers\IngredientController::class)
 Route::resource('dishes', App\Http\Controllers\DishController::class)->only([
     'index'
 ]);
-Route::resource('home', App\Http\Controllers\HomeController::class)->only([
+Route::resource('/', App\Http\Controllers\HomeController::class)->only([
     'index'
 ]);
 Route::resource('purchases', App\Http\Controllers\PurchaseController::class)->only([

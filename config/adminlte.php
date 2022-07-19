@@ -241,7 +241,7 @@ return [
  
         [
             'text' => 'Inicio',
-            'url'  => 'home',
+            'url'  => '',
             'icon' => 'fas fa-fw fa-home',
         ],
         [
