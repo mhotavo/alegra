@@ -14,7 +14,7 @@ class PurchaseController extends Controller
      */
     public function index()
     {
-        $purchases = Purchase::all();
+        $purchases = Purchase::orderBy('id', 'DESC')->get();
         return view('purchases.index', compact('purchases'));
     }
 

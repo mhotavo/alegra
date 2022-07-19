@@ -21,10 +21,12 @@ Route::resource('dishes', App\Http\Controllers\DishController::class)->only([
     'index'
 ]);
 Route::resource('home', App\Http\Controllers\HomeController::class)->only([
-    'index', 'create'
+    'index'
 ]);
 Route::resource('purchases', App\Http\Controllers\PurchaseController::class)->only([
     'index'
 ]);
 
- 
+
+Route::get('orders', [App\Http\Controllers\OrderController::class, 'index'])->name('orders');
+Route::get('orders/create', [App\Http\Controllers\OrderController::class, 'create'])->name('order.create');

@@ -21,6 +21,18 @@ class Order extends Model
      */
     protected $keyType = 'integer';
 
+    public const STATE = [
+        NULL => 'En Proceso',
+        0 => 'En Proceso',
+        1 => 'Lista'
+     ];
+
+    public const COLOR = [
+        NULL => 'warning',
+        0 => 'warning',
+        1 => 'success'
+     ];
+
     /**
      * @var array
      */
@@ -33,4 +45,16 @@ class Order extends Model
     {
         return $this->belongsTo('App\Models\Dish', 'dish_id');
     }
+    
+
+    public function getStateAttribute()
+    {
+       return self::STATE[ $this->attributes['state'] ];
+    }
+
+    public function getColorAttribute()
+    {
+       return self::COLOR[ $this->attributes['state'] ];
+    }
+    
 }

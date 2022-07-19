@@ -259,7 +259,11 @@ return [
             'url'  => 'purchases',
             'icon' => 'fas fa-fw fa-store',
         ],
-         
+        [
+            'text' => 'Ordenes',
+            'url'  => 'orders',
+            'icon' => 'fas fa-fw fa-list-alt',
+        ],
      
     ],
 
@@ -299,7 +303,7 @@ return [
 
     'plugins' => [
         'Datatables' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',

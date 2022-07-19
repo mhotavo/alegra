@@ -12,7 +12,7 @@ services:
       - mysql_db
       - redis
 
-  kitchen:
+  market:
     build:
       context: .
       dockerfile: Dockerfile
@@ -28,8 +28,8 @@ services:
     command: --default-authentication-plugin=mysql_native_password
     restart: always
     environment:
-      MYSQL_DATABASE: lunch
-      MYSQL_USER: lunch
+      MYSQL_DATABASE: restaurante
+      MYSQL_USER: restaurante
       MYSQL_PASSWORD: secret
       MYSQL_ROOT_PASSWORD: secret
     ports:
