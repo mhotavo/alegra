@@ -29,9 +29,9 @@ class Dish extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function ingredientDishes()
+    public function ingredients()
     {
-        return $this->hasMany('App\Models\IngredientDish', 'dish_id');
+        return $this->belongsToMany(Ingredient::class)->withPivot('quantity');
     }
 
     /**

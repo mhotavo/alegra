@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class IngredientDishTableSeeder extends Seeder
+class DishIngredientTableSeeder extends Seeder
 {
 
     /**
@@ -16,9 +16,9 @@ class IngredientDishTableSeeder extends Seeder
     {
         
 
-        \DB::table('ingredient_dish')->delete();
+        \DB::table('dish_ingredient')->delete();
         
-        \DB::table('ingredient_dish')->insert(array (
+        \DB::table('dish_ingredient')->insert(array (
             0 => 
             array (
                 'ingredient_id' => 1,

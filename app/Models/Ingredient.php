@@ -30,9 +30,9 @@ class Ingredient extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function ingredientDishes()
+    public function recipes()
     {
-        return $this->hasMany('App\Models\IngredientDish');
+        return $this->belongsToMany(Recipe::class)->withPivot('quantity');
     }
 
     /**
