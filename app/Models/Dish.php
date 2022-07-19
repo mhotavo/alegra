@@ -7,13 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property integer $id
  * @property string $name
- * @property integer $quantity
  * @property string $created_at
  * @property string $updated_at
  * @property IngredientDish[] $ingredientDishes
- * @property Purchase[] $purchases
+ * @property Order[] $orders
  */
-class Ingredient extends Model
+class Dish extends Model
 {
     /**
      * The "type" of the auto-incrementing ID.
@@ -25,21 +24,21 @@ class Ingredient extends Model
     /**
      * @var array
      */
-    protected $fillable = ['name', 'quantity', 'created_at', 'updated_at'];
+    protected $fillable = ['name', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function ingredientDishes()
     {
-        return $this->hasMany('App\Models\IngredientDish');
+        return $this->hasMany('App\Models\IngredientDish', 'recipe_id');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function purchases()
+    public function orders()
     {
-        return $this->hasMany('App\Models\Purchase');
+        return $this->hasMany('App\Models\Order', 'recipe_id');
     }
 }

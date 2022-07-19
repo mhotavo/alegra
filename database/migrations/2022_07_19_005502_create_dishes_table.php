@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateDishesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ingredients', function (Blueprint $table) {
-            $table->id();
+        Schema::create('dishes', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ingredients');
+        Schema::dropIfExists('dishes');
     }
-};
+}
