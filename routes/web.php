@@ -21,5 +21,10 @@ Route::resource('dishes', App\Http\Controllers\DishController::class)->only([
     'index'
 ]);
 Route::resource('home', App\Http\Controllers\HomeController::class)->only([
+    'index', 'create'
+]);
+Route::resource('purchases', App\Http\Controllers\PurchaseController::class)->only([
     'index'
 ]);
+
+ 

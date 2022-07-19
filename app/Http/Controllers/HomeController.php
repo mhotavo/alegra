@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use App\Models\Order;
 use App\Models\Ingredient;
-
+use App\Jobs\MarketApiRequest;
 
 class HomeController extends Controller
 {
@@ -23,64 +25,12 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $record = Order::create(['dish_id' => $request->dish_id]);
+        MarketApiRequest::dispatch($record);
+        return $record;
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreIngredientRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreIngredientRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Ingredient  $ingredient
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Ingredient $ingredient)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Ingredient  $ingredient
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Ingredient $ingredient)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateIngredientRequest  $request
-     * @param  \App\Models\Ingredient  $ingredient
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateIngredientRequest $request, Ingredient $ingredient)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Ingredient  $ingredient
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Ingredient $ingredient)
-    {
-        //
-    }
+    
 }

@@ -256,7 +256,7 @@ return [
         ],
         [
             'text' => 'Compras',
-            'url'  => 'admin/settings',
+            'url'  => 'purchases',
             'icon' => 'fas fa-fw fa-store',
         ],
          
