@@ -13,9 +13,9 @@ class AddForeignKeysToIngredientDishTable extends Migration
      */
     public function up()
     {
-        Schema::table('ingredient_dish', function (Blueprint $table) {
-            $table->foreign(['dish_id'], 'ingredient_dish_dish_id_foreign')->references(['id'])->on('dishes');
-            $table->foreign(['ingredient_id'], 'ingredient_dish_ingredient_id_foreign')->references(['id'])->on('ingredients');
+        Schema::table('dish_ingredient', function (Blueprint $table) {
+            $table->foreign(['dish_id'], 'dish_ingredient_dish_id_foreign')->references(['id'])->on('dishes');
+            $table->foreign(['ingredient_id'], 'dish_ingredient_ingredient_id_foreign')->references(['id'])->on('ingredients');
         });
     }
 
@@ -26,9 +26,9 @@ class AddForeignKeysToIngredientDishTable extends Migration
      */
     public function down()
     {
-        Schema::table('ingredient_dish', function (Blueprint $table) {
-            $table->dropForeign('ingredient_dish_dish_id_foreign');
-            $table->dropForeign('ingredient_dish_ingredient_id_foreign');
+        Schema::table('dish_ingredient', function (Blueprint $table) {
+            $table->dropForeign('dish_ingredient_dish_id_foreign');
+            $table->dropForeign('dish_ingredient_ingredient_id_foreign');
         });
     }
 }
